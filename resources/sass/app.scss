@@ -1,1 +1,22 @@
+<<<<<<< HEAD
 //
+=======
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+// Estilos AdminLTE
+@import '~admin-lte/dist/css/adminlte.css';
+
+// FONT AWESOME
+$fa-font-path:        "../webfonts";
+
+@import "~@fortawesome/fontawesome-free/scss/fontawesome.scss";
+@import "~@fortawesome/fontawesome-free/scss/solid.scss";
+@import "~@fortawesome/fontawesome-free/scss/brands.scss";
+>>>>>>> 10c4c2e619c91fee98607f00be38764c6adb6010
