@@ -94,7 +94,7 @@ return [
         'mongodb' => [
             'driver' => 'mongodb',
             'dsn' => 'mongodb+srv://integradora:equipo4@integradora.11lka.mongodb.net/<dbname>?retryWrites=true&w=majority',
-            'integradora' => 'integradora'
+            'database' => 'integradora'
         ]
 
     ],
