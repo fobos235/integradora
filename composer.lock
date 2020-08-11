@@ -811,12 +811,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/jenssegers/laravel-mongodb.git",
-                "reference": "accef42d88c50ac7db581d6d98712e11710098fa"
+                "reference": "d58fae2e39dd2499e960303dac2559d0d01fa046"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jenssegers/laravel-mongodb/zipball/accef42d88c50ac7db581d6d98712e11710098fa",
-                "reference": "accef42d88c50ac7db581d6d98712e11710098fa",
+                "url": "https://api.github.com/repos/jenssegers/laravel-mongodb/zipball/d58fae2e39dd2499e960303dac2559d0d01fa046",
+                "reference": "d58fae2e39dd2499e960303dac2559d0d01fa046",
                 "shasum": ""
             },
             "require": {
@@ -872,7 +872,7 @@
                 "mongo",
                 "mongodb"
             ],
-            "time": "2020-06-12T11:57:39+00:00"
+            "time": "2020-08-08T18:20:23+00:00"
         },
         {
             "name": "laravel/framework",

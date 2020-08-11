@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.limpio')
 
 @section('content')
 <div class="container">
