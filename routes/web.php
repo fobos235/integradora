@@ -33,12 +33,4 @@ Route::get('register', function(){
 
 Auth::routes();
 
-
-
-
-
-Route::get('nueva', function(){
-    return view('home');
-});
-
 Route::get('/home', 'HomeController@index')->name('home');
