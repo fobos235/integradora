@@ -33,7 +33,11 @@ Route::get('register', function(){
 
 Auth::routes();
 
-Route::get('sign', function(){
+
+
+
+
+Route::get('nueva', function(){
     return view('home');
 });
 
