@@ -33,4 +33,7 @@ Route::get('register', function(){
 
 Auth::routes();
 
+Route::resource('productos', 'admin\productosController');
+
+
 Route::get('/home', 'HomeController@index')->name('home');
