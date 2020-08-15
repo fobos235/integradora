@@ -93,9 +93,15 @@
           {{-- <span class="badge badge-warning navbar-badge">15</span> --}}
         </a>
         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-          <span class="dropdown-header">@auth
-              {{auth()->user()->name}}
-          @endauth</span>
+          @if(Auth::guest())
+          <span class="dropdown-header">
+            Usuario
+          </span>
+          @else
+          <span class="dropdown-header">
+            {{Auth::user()->name}}
+          </span>
+          @endif
           <div class="dropdown-divider"></div>
           <a href="{{route('logout')}}" class="dropdown-item">
             <i class="fa fa-sign-out-alt"></i> Cerrar sesión
@@ -128,7 +134,12 @@
           <img src="{{asset('img/empresario.png')}}" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">{{auth()->user()->name}}</a>
+          
+          @if(Auth::guest())
+            <a href="#" class="d-block">Usuario</a>
+          @else
+            <a href="#" class="d-block">{{auth()->user()->name}}</a>
+          @endif
         </div>
       </div>
 

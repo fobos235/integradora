@@ -36,7 +36,7 @@
                     
                     <div class="col-md-12 connectedSortable ui-sortable">
                         <div class="card card-primary">
-                            <table class="table">
+                            <table class="table" id="productos_tbl">
                                 <thead>
                                     <tr>
                                         <th>Nombre</th>
@@ -47,6 +47,7 @@
                                         <th>Categoría</th>
 
                                         <th>Acciones</th>
+                                        <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -119,6 +120,8 @@
             setTimeout(function(){
                 $('#status').addClass('d-none');
             },5000);
+
+            $('#productos_tbl').DataTable();
         });
         btn_oculto = null;
         $('.link-show').click(function(){
