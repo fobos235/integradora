@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('inicio');
+    return view('home');
 });
 
 
@@ -37,3 +37,5 @@ Route::resource('productos', 'admin\productosController');
 
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+// Route::get('logout', 'Auth\LoginController@logout')->name('logout');

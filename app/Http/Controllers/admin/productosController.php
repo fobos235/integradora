@@ -4,38 +4,71 @@ namespace App\Http\Controllers\admin;
 
 use App\Productos;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreProductoPost;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 
 class productosController extends Controller
 {
     public function index()
     {
-        # code...
+        $productos = Productos::orderBy('nombre','asc')->get();
+        return view('admin\productos_lista',['productos'=> $productos]);
     }
 
 
     public function create()
     {
-        # code...
+        return view('admin\productos_create', ['producto' => $producto = new Productos()]);
     }
 
     public function store(Request $request)
     {
-        # code...
+        $request->validate([
+            'nombre' => 'required|min:3|max:50',
+            'marca' => 'required',
+            'modelo' => 'required|min:3',
+            'precio' => 'required',
+            'stock' => 'required',
+            'categoria' => 'required'
+        ]);
+
+        $producto = new Productos;
+        $producto->nombre = $request->nombre;
+        $producto->marca = $request->marca;
+        $producto->modelo = $request->modelo;
+        $producto->precio = doubleval($request->precio);
+        $producto->descripcion = $request->descripcion;
+        $producto->stock = intval($request->stock);
+        $producto->categoria = $request->categoria;
+
+        $producto->save();
+        return back()->with('status','Producto registrado con exito');
     }
 
-    public function edit(Request $request)
+    public function edit($id)
     {
-        # code...
+        $producto = Productos::findOrFail($id);
+        return view('admin\productos_edit',['producto'=>$producto]);
+
     }
 
-    public function update(Request $request)
+    public function update(StoreProductoPost $request, $id)
     {
-        # code...
+        $producto = Productos::findOrFail($id);
+        $producto->update($request->validated());
+        return Redirect::to(route('productos.index'))->with('status', 'Producto actualizado');
     }
     
-    public function destroy(Type $var = null)
+    public function show($id)
     {
-        # code...
+        $producto = Productos::findOrFail($id);
+        return view('admin\ver_producto', ['producto' => $producto]);
+    }
+    public function destroy($id)
+    {
+        $producto = Productos::findOrFail($id);
+        $producto->delete();
+        return back()->with('status','Producto eliminado');
     }
 }
