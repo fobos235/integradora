@@ -1,6 +1,8 @@
 @if (Auth::guest())
     <script>location.href="{{route('login')}}";</script>
 @endif
+
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
