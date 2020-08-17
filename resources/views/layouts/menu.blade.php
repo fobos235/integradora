@@ -121,9 +121,9 @@
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="{{route('home')}}" class="brand-link">
-      <img src="{{asset('img/escritorio.png')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+      <img src="{{asset('img/logo_computodo.png')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
            style="opacity: .8">
-      <span class="brand-text font-weight-light">AdminLTE 3</span>
+      <span class="brand-text font-weight-light">Computodo</span>
     </a>
 
     <!-- Sidebar -->
@@ -167,6 +167,24 @@
                 <a href="#" class="nav-link">
                   <i class="fa fa-circle nav-icon"></i>
                   <p>Categorías</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
+          <li class="nav-item has-treeview menu-open">
+            <a href="#" class="nav-link active" style="background:#3490DC;">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                Usuarios
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{route('usuarios.index')}}" class="nav-link active">
+                  <i class="fa fa-circle nav-icon"></i>
+                  <p>Ver usuarios</p>
                 </a>
               </li>
             </ul>

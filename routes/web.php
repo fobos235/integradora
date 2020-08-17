@@ -35,6 +35,7 @@ Auth::routes();
 
 Route::resource('productos', 'admin\productosController');
 
+Route::resource('usuarios', 'admin\usuariosController');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
