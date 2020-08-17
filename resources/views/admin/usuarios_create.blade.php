@@ -36,6 +36,7 @@
                             <div class="card-body">
                                 @include('layouts.form_user')
                                 
+                                
                                 <div class="card-footer">
                                     <button type="submit" class="btn btn-primary">Crear</button>
                                     <input type="button" onclick="history.back()" name="volver atrás" value="volver atrás" class="btn btn-prymary" style="background:#ffffff; color:#3490DC;">
