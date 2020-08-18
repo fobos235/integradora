@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Productos;
+use App\Categorias;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreProductoPost;
 use Illuminate\Http\Request;
@@ -12,13 +13,15 @@ class productosController extends Controller
 {
     public function index()
     {
+        
         $productos = Productos::orderBy('nombre','asc')->get();
         return view('admin\productos_lista',['productos'=> $productos]);
     }
 
 
     public function create()
-    {
+    {   
+        
         return view('admin\productos_create', ['producto' => $producto = new Productos()]);
     }
 
@@ -49,7 +52,8 @@ class productosController extends Controller
     public function edit($id)
     {
         $producto = Productos::findOrFail($id);
-        return view('admin\productos_edit',['producto'=>$producto]);
+        $categorias = Categorias::get()->where('estado','activo');
+        return view('admin\productos_edit',['producto'=>$producto, 'categorias' => $categorias]);
 
     }
 
@@ -63,7 +67,8 @@ class productosController extends Controller
     public function show($id)
     {
         $producto = Productos::findOrFail($id);
-        return view('admin\ver_producto', ['producto' => $producto]);
+        $categorias = Categorias::get()->where('estado','activo');
+        return view('admin\ver_producto', ['producto' => $producto, 'categorias' => $categorias]);
     }
     public function destroy($id)
     {

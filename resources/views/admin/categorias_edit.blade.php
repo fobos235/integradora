@@ -10,12 +10,14 @@
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
                     <li class="breadcrumb-item"><a href="{{route('home')}}">Inicio</a></li>
-                    <li class="breadcrumb-item active">Nueva</li>
+                    <li class="breadcrumb-item"><a href="{{route('categorias.index')}}">Categorías</a></li>
+                    <li class="breadcrumb-item active">Editar</li>
                 </ol>
             </div>
         </div>
     </div>
 </div>
+
 <section class="content">
     <div class="container-fluid">
         <div class="row">
@@ -32,7 +34,8 @@
                     
                     
                     <!-- form start -->
-                    <form role="form" action="{{route('categorias.store')}}" method="POST">
+                    <form role="form" action="{{route('categorias.update',$categoria)}}" method="POST">
+                        @method('PUT')
                         <div class="card-body">
                             @include('layouts.form_categorias')
                             
@@ -49,5 +52,4 @@
     </div>
 </section>
 
-    
 @endsection
