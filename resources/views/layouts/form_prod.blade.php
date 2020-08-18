@@ -62,17 +62,24 @@
         <div class="form-group">
             <label for="categoria">Categoría</label>
             <select name="categoria" class="form-control" id="categoria">
-                <option disabled>Seleccione...</option>
-                <option value="activo" @if (old('categoria') == 'activo'|| $producto->categoria == 'activo')
-                    selected
-                @endif>Activo</option>
-                <option value="inactivo" @if (old('categoria') == 'inactivo' || $producto->categoria == 'inactivo')
-                    selected
-                @endif >Inactivo</option>
+                <option disabled @if(!old('categoria') || !$producto->categoria)
+                selected
+                @endif>Seleccione...</option>
+                @foreach ($categorias as $item)
+                    <option value="{{$item->nombre}}" @if(old('categoria') == $item->nombre || $producto->categoria == $item->nombre)
+                        selected
+                        @endif>{{$item->nombre}}</option>
+                @endforeach
+               
             </select>
+
+            
             @error('categoria')
                 <small class="text-danger">{{$message}}</small>
             @enderror
         </div> 
     </div>
 </div>
+
+
+               

@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
     <link rel="shortcut icon" href="{{asset('img/escritorio.png')}}" type="image/x-icon">
     <script src="{{asset('js/app.js')}}"></script>
+    
 </head>
 <body>
     @include('layouts.menu')
@@ -22,6 +23,6 @@
     </div>
 
     @include('layouts.footer')
-    
+    <script src="{{asset('js/main.js')}}"></script>
 </body>
 </html>

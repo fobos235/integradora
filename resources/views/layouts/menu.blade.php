@@ -149,7 +149,7 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item has-treeview menu-open">
-            <a href="#" class="nav-link active">
+            <a href="#" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Productos
@@ -158,13 +158,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{route('productos.index')}}" class="nav-link active">
+                <a href="{{route('productos.index')}}" class="nav-link">
                   <i class="fa fa-circle nav-icon"></i>
                   <p>Ver productos</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="{{route('categorias.index')}}" class="nav-link">
                   <i class="fa fa-circle nav-icon"></i>
                   <p>Categorías</p>
                 </a>
@@ -173,7 +173,7 @@
           </li>
 
           <li class="nav-item has-treeview menu-open">
-            <a href="#" class="nav-link active" style="background:#3490DC;">
+            <a href="#" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Usuarios
@@ -182,7 +182,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{route('usuarios.index')}}" class="nav-link active">
+                <a href="{{route('usuarios.index')}}" class="nav-link">
                   <i class="fa fa-circle nav-icon"></i>
                   <p>Ver usuarios</p>
                 </a>
