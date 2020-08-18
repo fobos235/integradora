@@ -37,6 +37,13 @@ Route::resource('productos', 'admin\productosController');
 
 Route::resource('usuarios', 'admin\usuariosController');
 
+
+
+
+
+
+Route::resource('ventas', 'admin\ventasController');
+
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('logout', 'Auth\LoginController@logout')->name('logout');

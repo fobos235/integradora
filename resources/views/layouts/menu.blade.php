@@ -189,6 +189,33 @@
               </li>
             </ul>
           </li>
+
+          <li class="nav-item has-treeview menu-open">
+            <a href="#" class="nav-link active" style="background:#3490DC;">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                Ventas
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{route('ventas.index')}}" class="nav-link active">
+                  <i class="fa fa-circle nav-icon"></i>
+                  <p>Ver ventas</p>
+                </a>
+              </li>
+            </ul>
+
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{route('ventas.create')}}" class="nav-link active">
+                  <i class="fa fa-circle nav-icon"></i>
+                  <p>Venta rápida</p>
+                </a>
+              </li>
+            </ul>
+          </li>
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-th"></i>

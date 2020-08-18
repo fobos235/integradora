@@ -39,7 +39,6 @@
                                 <tr>
                                     <th>Nombre</th>
                                     <th>Email</th>
-                                    <th>Password</th>
                                     <th>Creado</th>
                                     <th>Editado</th>
                                     <th>Acciones</th>
@@ -51,7 +50,6 @@
                                     <tr>
                                         <td>{{$user->name}}</td>
                                         <td>{{$user->email}}</td>
-                                        <td>{{$user->password}}</td>
                                         <td>{{$user->created_at->format('Y-m-d')}}</td>
                                         <td>{{$user->updated_at}}</td> 
 
