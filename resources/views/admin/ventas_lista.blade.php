@@ -108,8 +108,7 @@
         $('#imprimir').click(function(){
             $('#detalle-venta #modal-show-info').print({
                 title: "Nota de venta",
-                addGlobalStyles : true,
-
+                addGlobalStyles : true
             });
         });
     </script>
