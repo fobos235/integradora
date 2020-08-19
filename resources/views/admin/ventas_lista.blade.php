@@ -46,7 +46,7 @@
                                 <tbody>
                                     @foreach ($ventas as $v)
                                          <tr>
-                                            <td>{{$v->fecha}}</td>
+                                            <td>{{$v->fecha->format('Y-m-d')}}</td>
                                             <td>{{$v->vendedor}}</td>
                                             <td>{{$v->subtotal}}</td>
                                             <td>{{$v->total}}</td>

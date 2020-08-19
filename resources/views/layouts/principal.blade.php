@@ -11,6 +11,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Administración</title>
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
+    <link rel="stylesheet" href="{{asset('css/main.css')}}">
     <link rel="shortcut icon" href="{{asset('img/escritorio.png')}}" type="image/x-icon">
     <script src="{{asset('js/app.js')}}"></script>
     
