@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="{{asset('css/main.css')}}">
     <link rel="shortcut icon" href="{{asset('img/escritorio.png')}}" type="image/x-icon">
     <script src="{{asset('js/app.js')}}"></script>
+    <script src="{{asset('js/jQuery.print.js')}}"></script>
     
 </head>
 <body>
@@ -25,5 +26,6 @@
 
     @include('layouts.footer')
     <script src="{{asset('js/main.js')}}"></script>
+    
 </body>
 </html>

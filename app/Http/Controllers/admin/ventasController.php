@@ -80,7 +80,8 @@ class ventasController extends Controller
      */
     public function show($id)
     {
-        //
+        $venta = Venta::findOrFail($id);
+        return view('admin\ventas_detalle', ['venta' => $venta]);
     }
 
     /**

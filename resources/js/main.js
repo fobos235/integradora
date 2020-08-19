@@ -4,7 +4,7 @@
                 $('#status').addClass('d-none');
             },5000);
 
-            $('#productos_tbl').DataTable();
+            $('#ventas_tbl').DataTable();
         });
         btn_oculto = null;
         $('.link-show').click(function(){
