@@ -76,4 +76,5 @@ class productosController extends Controller
         $producto->delete();
         return back()->with('status','Producto eliminado');
     }
+
 }

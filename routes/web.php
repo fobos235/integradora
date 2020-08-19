@@ -39,10 +39,6 @@ Route::resource('usuarios', 'admin\usuariosController');
 Route::resource('categorias', 'admin\categoriasController');
 
 
-
-
-
-
 Route::resource('ventas', 'admin\ventasController');
 
 Route::get('/home', 'HomeController@index')->name('home');
