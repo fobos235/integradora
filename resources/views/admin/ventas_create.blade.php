@@ -47,6 +47,7 @@
         </div>
     </section>
 
+<<<<<<< HEAD
     <div class="modal fade" id="modal-danger">
         <div class="modal-dialog">
           <div class="modal-content bg-danger">
@@ -68,6 +69,21 @@
         <!-- /.modal-dialog -->
       </div>
       <!-- /.modal -->
+=======
+
+    <!-- 
+        Aqui hay varias partes, se usa el metodo POST para recuperar la información consultada con el metodo de controllerVentas llamado fecth
+        Y lo añadimos justo de bajo del buscador de productos por medio de un div, la variable que recibimos se recibe y si se da click se escribe
+        esa información en el campo de producto para agregarlo
+
+        Adicionalmente cuándo mandamos la variable especificamos un metodo en el li para que al hacerle click y el nombre del producto se inserte ese dato en el campo
+        de texto,estamos mandando los datos de la consulta de ese producto a una funcion llamada agregar.
+
+        Una vez logrado esto en el código de abajo mencionamos que al momento de presionar el botón de agregar producto validamos que si está vacio nos mande un mensaje
+        de que no se pueden agregar algo vacio, luego al utilizar el metodo agregar mandamos información, esa información la usamos para añadir los datos de los productos
+        en una tabla para que puedan visualizarse
+    -->
+>>>>>>> 563fc916557ef4a243e2a202c19de154b0b02587
     
     <script>
         $(document).ready(function(){

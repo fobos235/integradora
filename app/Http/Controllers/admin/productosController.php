@@ -27,6 +27,7 @@ class productosController extends Controller
 
     public function store(Request $request)
     {
+        //Validamos los campos agregando el numero de caracteres permitido en cada uno
         $request->validate([
             'nombre' => 'required|min:3|max:50',
             'marca' => 'required',
@@ -35,8 +36,11 @@ class productosController extends Controller
             'stock' => 'required',
             'categoria' => 'required'
         ]);
-
+            
+        //Objeto de la clase Usuario
         $producto = new Productos;
+
+        /*Aqui indicamos cada atributo del objeto los valores recuperados del formulario de producto*/
         $producto->nombre = $request->nombre;
         $producto->marca = $request->marca;
         $producto->modelo = $request->modelo;
@@ -45,12 +49,15 @@ class productosController extends Controller
         $producto->stock = intval($request->stock);
         $producto->categoria = $request->categoria;
 
+        /*Ahora almacenamos los datos del objeto en nuestra coleccion de producto y regresamos al formulario junto con un mensaje*/
         $producto->save();
         return back()->with('status','Producto registrado con exito');
     }
 
     public function edit($id)
     {
+        /*Creamos un objeto de producto y utilizamos la función finorfail() que nos permite consultar de forma 
+        automática al usuario o arrajarnos una ventana vacía en caso de no encontrarlo*/
         $producto = Productos::findOrFail($id);
         $categorias = Categorias::get()->where('estado','activo');
         return view('admin\productos_edit',['producto'=>$producto, 'categorias' => $categorias]);

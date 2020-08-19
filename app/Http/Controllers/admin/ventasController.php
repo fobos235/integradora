@@ -65,7 +65,7 @@ class ventasController extends Controller
 
         //NO ESTA TERMINADO PORQUE FALTAN LOS PRODUCTOS
 
-        /*Ahora almacenamos los datos del objeto en nuestra tabla de ventas*/
+        /*Ahora almacenamos los datos del objeto en nuestra coleccion de ventas con la función save()*/
         $ventas->save();
         
         //Nos regresa al formulario con un mensaje y utilizamos el parametro status para hacerlo
@@ -117,6 +117,10 @@ class ventasController extends Controller
     {
         //
     }
+
+    /*Este método nos sirve para comprobar coincidencias de información en la base de datos, 
+    dando como parametro el request y si encuentra coincidencias arroja la variable output que es usada 
+    después para el buscador ajax*/
 
     public function fetch(Request $request)
     {
