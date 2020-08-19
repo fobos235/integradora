@@ -121,7 +121,7 @@
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="{{route('home')}}" class="brand-link">
-      <img src="{{asset('img/logo_computodo.png')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+      <img src="{{asset('img/computodo2.png')}}" alt="AdminLTE Logo" class="brand-image"
            style="opacity: .8">
       <span class="brand-text font-weight-light">Computodo</span>
     </a>
@@ -191,7 +191,7 @@
           </li>
 
           <li class="nav-item has-treeview menu-open">
-            <a href="#" class="nav-link active" style="background:#3490DC;">
+            <a href="#" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Ventas
@@ -200,7 +200,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{route('ventas.index')}}" class="nav-link active">
+                <a href="{{route('ventas.index')}}" class="nav-link">
                   <i class="fa fa-circle nav-icon"></i>
                   <p>Ver ventas</p>
                 </a>
@@ -209,7 +209,7 @@
 
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{route('ventas.create')}}" class="nav-link active">
+                <a href="{{route('ventas.create')}}" class="nav-link">
                   <i class="fa fa-circle nav-icon"></i>
                   <p>Venta rápida</p>
                 </a>

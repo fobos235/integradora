@@ -13,7 +13,8 @@
     <div class="col-md-5">
         <div class="form-group">
             <label for="marca">Producto</label>
-            <input type="text" class="form-control" id="producto" name="producto" value="" placeholder="Producto">
+            <input type="text" class="form-control input-lg" id="producto" name="producto" value="" placeholder="Producto">
+            <div id="productList"></div>
             @error('producto')
                 <small class="text-danger">{{$message}}</small>
             @enderror
@@ -46,7 +47,7 @@
                 <td></td>
                 <td></td>
                 <td></td>
-                <td></td>
+                <td><input type="number"></input></td>
                 <td></td>
                 <td></td>
             </tbody>
