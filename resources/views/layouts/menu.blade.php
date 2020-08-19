@@ -121,9 +121,9 @@
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="{{route('home')}}" class="brand-link">
-      <img src="{{asset('img/escritorio.png')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+      <img src="{{asset('img/computodo2.png')}}" alt="AdminLTE Logo" class="brand-image"
            style="opacity: .8">
-      <span class="brand-text font-weight-light">AdminLTE 3</span>
+      <span class="brand-text font-weight-light">Computodo</span>
     </a>
 
     <!-- Sidebar -->
@@ -149,7 +149,7 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item has-treeview menu-open">
-            <a href="#" class="nav-link active">
+            <a href="#" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Productos
@@ -158,15 +158,60 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{route('productos.index')}}" class="nav-link active">
+                <a href="{{route('productos.index')}}" class="nav-link">
                   <i class="fa fa-circle nav-icon"></i>
                   <p>Ver productos</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="{{route('categorias.index')}}" class="nav-link">
                   <i class="fa fa-circle nav-icon"></i>
                   <p>Categorías</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
+          <li class="nav-item has-treeview menu-open">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                Usuarios
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{route('usuarios.index')}}" class="nav-link">
+                  <i class="fa fa-circle nav-icon"></i>
+                  <p>Ver usuarios</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
+          <li class="nav-item has-treeview menu-open">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                Ventas
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{route('ventas.index')}}" class="nav-link">
+                  <i class="fa fa-circle nav-icon"></i>
+                  <p>Ver ventas</p>
+                </a>
+              </li>
+            </ul>
+
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{route('ventas.create')}}" class="nav-link">
+                  <i class="fa fa-circle nav-icon"></i>
+                  <p>Venta rápida</p>
                 </a>
               </li>
             </ul>

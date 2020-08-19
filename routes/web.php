@@ -35,6 +35,13 @@ Auth::routes();
 
 Route::resource('productos', 'admin\productosController');
 
+Route::resource('usuarios', 'admin\usuariosController');
+Route::resource('categorias', 'admin\categoriasController');
+
+Route::post('/ventas/fetch', 'admin\ventasController@fetch')->name('ventas.fetch');
+
+
+Route::resource('ventas', 'admin\ventasController');
 
 Route::get('/home', 'HomeController@index')->name('home');
 

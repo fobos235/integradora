@@ -1,0 +1,16 @@
+.dropdown-menu{
+    width:100% !important;
+    padding: 0;
+    
+}
+.dropdown-menu li a{
+    text-decoration: none;
+}
+.dropdown-menu li:hover {
+    background-color: blueviolet;
+    cursor: pointer;
+}
+
+.dropdown-menu li a:hover{
+    color:white;
+}
