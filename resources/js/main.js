@@ -1,4 +1,4 @@
-<script>
+
         $(document).ready(function(){
             setTimeout(function(){
                 $('#status').addClass('d-none');

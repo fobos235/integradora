@@ -21,8 +21,8 @@ class productosController extends Controller
 
     public function create()
     {   
-        
-        return view('admin\productos_create', ['producto' => $producto = new Productos()]);
+        $categorias = Categorias::where('estado','activo')->get(); 
+        return view('admin\productos_create', ['producto' => $producto = new Productos(), 'categorias' => $categorias]);
     }
 
     public function store(Request $request)
