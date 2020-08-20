@@ -131,7 +131,8 @@ class ventasController extends Controller
                     foreach($data as $row)
                     {
                         $output .= "
-                        <li class='col-12 product-info' onclick='agregar(\"$row->nombre\", $row->precio, $row->stock)'><a href='#' data-info='".$row->nombre."*".$row->precio."*".$row->stock."'>".$row->nombre."</a></li>
+                        <li class='col-12 product-info' onclick='agregar(\"$row->nombre\", $row->precio, $row->stock)
+                        '><a href='#' data-info='".$row->nombre."*".$row->precio."*".$row->stock."'>".$row->nombre."</a></li>
                         ";
                     }
               $output .= '</ul>';
