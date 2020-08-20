@@ -47,8 +47,10 @@
                                 <tbody>
                                     @foreach ($ventas as $v)
                                          <tr>
-                                            
-                                            <td>{{$v->fecha->toDateTime()->format('Y-m-d h:i:s')}}</td>
+                                            @php
+                                                $fecha = date('Y-m-d h:i:s',strtotime($v->fecha));
+                                            @endphp
+                                            <td>{{$fecha}}</td>
                                             <td>{{$v->vendedor}}</td>
                                             <td>{{$v->subtotal}}</td>
                                             <td>{{$v->total}}</td>
@@ -101,6 +103,12 @@
                 },
                 success:function(data){
                     $('#modal-show-info').html(data);
+                },fail: function(data){
+                    error = "<center>Ocurrió un error inesperado";
+                    $('#modal-show-info').html(error);
+                },error: function(data){
+                    error = "<center><h1><i class='fas fa-bug'></i></h1><br><h2 class='text-danger'>Ocurrió un error inesperado</error></h2>";
+                    $('#modal-show-info').html(error);
                 }
             });
         });
