@@ -5,7 +5,9 @@ namespace App\Http\Controllers\admin;
 use App\Venta;
 use App\Productos;
 use App\Http\Controllers\Controller;
+use DateTime;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 
 class ventasController extends Controller
 {
@@ -44,32 +46,44 @@ class ventasController extends Controller
     public function store(Request $request)
     {
         //Validamos los campos agregando el numero de caracteres permitido en cada uno
-        /*$request->validate([
-            'arr_productos' => 'required',
+        $request->validate([
+            'productos' => 'required',
             'fecha' => 'required',
             'subtotal' => 'required',
             'total' => 'required',
             'iva' => 'required',
-            ]);*/
+        ]);
            
         //Objeto de la clase Usuario
         $ventas = new Venta;
 
         /*Aqui indicamos cada atributo del objeto los valores recuperados del formulario de venta*/
+        
+        $ventas->fecha =date(DateTime::ISO8601);
+        $ventas->vendedor = $request->vendedor;
+        $ventas->subtotal = doubleval($request->subtotal);
+        $ventas->total = doubleval($request->total);
+        $ventas->productos = $request->productos;
+        $ventas->descuento = 0;
+        $ventas->iva = doubleval($request->iva);
 
-        $ventas->fecha = $request->fecha;
-        $ventas->subtotal = $request->subtotal;
-        $ventas->total = $request->total;
-        $ventas->productos = $request->arr_productos;
-        $ventas->descuento = $request->descuento;
-        $ventas->iva = $request->iva;
+        foreach($ventas->productos as $p){
+            $producto = Productos::findOrFail($p['id']);
+            $n_stock = $producto->stock - $p['cantidad'];
+            if($n_stock >= 0){
+                $producto->stock = $n_stock;
+                $producto->update();
+            }else{
+                return "Producto $producto->nombre está agotado";
+                break;
+            }
+        }
 
-        echo $ventas->fecha;
-        echo $ventas->subtotal;
-        echo $ventas->total = $request->total;
-        echo $ventas->productos;
-        echo $ventas->descuento;
-        echo $ventas->iva;
+        $ventas->save();
+
+
+        return "ok";
+        
 
 
 
@@ -141,7 +155,8 @@ class ventasController extends Controller
                     foreach($data as $row)
                     {
                         $output .= "
-                        <li class='col-12 product-info' onclick='agregar(\"$row->nombre\", $row->precio, $row->stock)'><a href='#' data-info='".$row->nombre."*".$row->precio."*".$row->stock."'>".$row->nombre."</a></li>
+                        <li class='col-12 product-info' onclick='agregar(\"$row->nombre\", $row->precio, $row->stock, \"$row->id\")
+                        '><a href='#' data-info='".$row->nombre."*".$row->precio."*".$row->stock."'>".$row->nombre."</a></li>
                         ";
                     }
               $output .= '</ul>';

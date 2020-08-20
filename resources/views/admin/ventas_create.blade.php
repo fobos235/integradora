@@ -30,7 +30,7 @@
                 <div class="col-md-12 connectedSortable ui-sortable">
                     <div class="card card-primary">
                         
-                        <form role="form" action="{{route('ventas.store')}}" method="POST" id="nueva_venta">
+                        <form role="form" action="{{route('ventas.store')}}" method="POST" name="form_ventas" id="nueva_venta">
                             <div class="card-body">
                                 @include('layouts.form_vent')
                                 
@@ -47,7 +47,29 @@
         </div>
     </section>
 
+    <div class="modal fade" id="modal-danger">
+        <div class="modal-dialog">
+          <div class="modal-content bg-danger">
+            <div class="modal-header">
+              <h4 class="modal-title">Agregue un producto</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <p>Debe seleccionar un producto para agregarlo a la venta</p>
+            </div>
+            <div class="modal-footer justify-content-between">
+              <button type="button" class="btn btn-outline-light" data-dismiss="modal">Cerrar</button>
+            </div>
+          </div>
+          <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+      </div>
+      <!-- /.modal -->
 
+    
     <!-- 
         Aqui hay varias partes, se usa el metodo POST para recuperar la información consultada con el metodo de controllerVentas llamado fecth
         Y lo añadimos justo de bajo del buscador de productos por medio de un div, la variable que recibimos se recibe y si se da click se escribe
@@ -60,7 +82,6 @@
         de que no se pueden agregar algo vacio, luego al utilizar el metodo agregar mandamos información, esa información la usamos para añadir los datos de los productos
         en una tabla para que puedan visualizarse
     -->
-    
     <script>
         $(document).ready(function(){
 
@@ -104,7 +125,7 @@
                 data = $('#agregar').val();
                 info = data.split("*");
                 tbl = "<tr>";
-                tbl += "<td>Modelo</td>";
+                tbl += "<td>"+info[3]+"</td>";
                 tbl += "<td><input type='hidden' name='productos[]' value='"+info[0]+"'>"+info[0]+"</td>";
                 tbl += "<td class='precio'>"+parseFloat(info[1]).toFixed(2)+"</td>";
                 tbl += "<td>"+info[2]+"</td>";
@@ -146,15 +167,17 @@
                 subtotal = subtotal + Number($(this).find("td:eq(5)").text());
             });
 
-            $('#subtotal').val(parseFloat(subtotal).toFixed(2));
+            //$('#subtotal').val(parseFloat(subtotal).toFixed(2));
             porcentaje = 16;
             iva = subtotal * (porcentaje/100);
-            $('#iva').val(iva.toFixed(2));
+            //$('#iva').val(iva.toFixed(2));
             total = subtotal + iva - descuento;
-            $("#total").val(total.toFixed(2));
+            //$("#total").val(total.toFixed(2));
 
-            let valores = subtotal+'*'+iva.toFixed(2)+'*'+total;
-            return valores;
+            document.form_ventas.subtotal.value = parseFloat(subtotal).toFixed(2);
+            document.form_ventas.iva.value = parseFloat(iva).toFixed(2);
+            document.form_ventas.total.value = parseFloat(total).toFixed(2);
+
         }
 
         $(document).on("click", ".btn-remover-prod", function () {
@@ -168,19 +191,44 @@
             articulos = [];
             cantidades = [];
             $('#tbody tr').each(function () {
-                productos.push({'producto' : $(this).find("td:eq(1)").text(), 'cantidad' : parseInt($(this).find(".cantidades").val()), 'precio' : parseFloat($(this).find("td:eq(2)").text()).toFixed(2) });
+                productos.push({'id': $(this).find("td:eq(0)").text(),'producto' : $(this).find("td:eq(1)").text(), 'cantidad' : parseInt($(this).find(".cantidades").val()), 'precio' : parseFloat($(this).find("td:eq(2)").text()).toFixed(2) });
 
             });
-                
-               
+            let fecha = document.form_ventas.fecha.value;
+            let token = document.form_ventas._token.value;
+            let subtotal= document.form_ventas.subtotal.value;
+            let iva = document.form_ventas.iva.value;
+            let total = document.form_ventas.total.value;
+            let arr_productos = document.form_ventas.arr_productos.value;
+            let vendedor = document.form_ventas.vendedor.value;
+
+          
+
 
             $('#arr_productos').val(JSON.stringify(productos));
+
+            $.ajax({
+                url: "{{route('ventas.store')}}",
+                method: "POST",
+                data : {_token : token,subtotal : subtotal, fecha: fecha, iva : iva,total : total,vendedor : vendedor,productos : productos},
+                success: function(info){
+                    if (info == "ok"){
+                        location.href = "{{route('ventas.index')}}";
+                    }else{
+                        alert(info);
+                    }
+
+                }
+                
+            })
+            
+            return false;
         });
 
         
 
-        function agregar(nombre,precio, stock){
-           let values = nombre+"*"+precio+"*"+stock;
+        function agregar(nombre,precio, stock, id){
+           let values = nombre+"*"+precio+"*"+stock+"*"+id;
            $('#agregar').val(values);
         }
 

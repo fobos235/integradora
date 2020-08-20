@@ -14,7 +14,10 @@
 
         </div>
         <br><br>
-        <div class="col-6">Fecha: {{$venta->fecha->toDateTime()->format('Y-m-d h:i:s')}}</div>
+        @php
+            $fecha = date('Y-m-d h:i:s',strtotime($venta->fecha));
+        @endphp
+        <div class="col-6">Fecha: {{$fecha}}</div>
         <div class="col-6">Vendedor: {{$venta->vendedor}}</div>
         <div class="col-12">
            <p><strong>Productos comprados</strong></p> 
@@ -23,6 +26,7 @@
         <table class="table">
             <thead>
                 <tr>
+                    <th>Código</th>
                     <th>Producto</th>
                     <th>Cantidad</th>
                     <th>Costo</th>
@@ -32,30 +36,32 @@
 
             <br>
             <tbody>
-            @foreach ($venta->producto as $p)
+            @foreach ($venta->productos as $p)
+            
             <tr>
-                <td>{{$p['nombre']}}</td>
+                <td>{{$p['id']}}</td>
+                <td>{{$p['producto']}}</td>
                 <td>{{$p['cantidad']}}</td>
-                <td colspan="2" style="text-align: end">{{floatval($p['precio'])}}</th>
+                <td colspan="2" style="text-align: end">{{number_format(floatval($p['precio']),2,'.','')}}</th>
             </tr>
             
             @endforeach
             <tr>
                 <td colspan="2" style="text-align: end"><strong>Subtotal</strong></td>
-                <td style="text-align: end">{{floatval($venta->subtotal)}}</td>
+                <td style="text-align: end">{{number_format(floatval($venta->subtotal),2,'.','')}}</td>
             </tr>
             <tr>
                 <td colspan="2" style="text-align: end"><strong>IVA</strong></td>
-                <td style="text-align: end">{{floatval($venta->iva)}}</td>
+                <td style="text-align: end">{{number_format(floatval($venta->iva),2,'.','')}}</td>
             </tr>
 
             <tr>
                 <td colspan="2" style="text-align: end"><strong>Descuento</strong></td>
-                <td style="text-align: end">{{floatval($venta->descuento)}}</td>
+                <td style="text-align: end">{{number_format(floatval($venta->descuento),2,'.','')}}</td>
             </tr>
             <tr>
                 <td colspan="2" style="text-align: end"><strong>Total</strong></td>
-                <td style="text-align: end">{{floatval($venta->total)}}</td>
+                <td style="text-align: end">{{number_format(floatval($venta->total),2,'.','')}}</td>
             </tr>
             </tbody>
         </table>
