@@ -67,6 +67,7 @@ class ventasController extends Controller
         $ventas->descuento = 0;
         $ventas->iva = doubleval($request->iva);
 
+        # RECORRIENDO CADA UNO DE LOS PRODUCTOS DE LA COMPRA Y ACTUALIZANDO INVENTARIO
         foreach($ventas->productos as $p){
             $producto = Productos::findOrFail($p['id']);
             $n_stock = $producto->stock - $p['cantidad'];
@@ -83,17 +84,6 @@ class ventasController extends Controller
 
 
         return "ok";
-        
-
-
-
-        //NO ESTA TERMINADO PORQUE FALTAN LOS PRODUCTOS
-
-        /*Ahora almacenamos los datos del objeto en nuestra coleccion de ventas con la función save()*/
-        //$ventas->save();
-        
-        //Nos regresa al formulario con un mensaje y utilizamos el parametro status para hacerlo
-        //return back()->with('status','Venta con exito');
     }
 
     /**
