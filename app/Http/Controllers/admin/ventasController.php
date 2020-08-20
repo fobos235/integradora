@@ -44,13 +44,13 @@ class ventasController extends Controller
     public function store(Request $request)
     {
         //Validamos los campos agregando el numero de caracteres permitido en cada uno
-        $request->validate([
-            'producto' => 'required',
+        /*$request->validate([
+            'arr_productos' => 'required',
             'fecha' => 'required',
             'subtotal' => 'required',
             'total' => 'required',
             'iva' => 'required',
-            ]);
+            ]);*/
            
         //Objeto de la clase Usuario
         $ventas = new Venta;
@@ -60,16 +60,26 @@ class ventasController extends Controller
         $ventas->fecha = $request->fecha;
         $ventas->subtotal = $request->subtotal;
         $ventas->total = $request->total;
+        $ventas->productos = $request->arr_productos;
         $ventas->descuento = $request->descuento;
         $ventas->iva = $request->iva;
+
+        echo $ventas->fecha;
+        echo $ventas->subtotal;
+        echo $ventas->total = $request->total;
+        echo $ventas->productos;
+        echo $ventas->descuento;
+        echo $ventas->iva;
+
+
 
         //NO ESTA TERMINADO PORQUE FALTAN LOS PRODUCTOS
 
         /*Ahora almacenamos los datos del objeto en nuestra coleccion de ventas con la función save()*/
-        $ventas->save();
+        //$ventas->save();
         
         //Nos regresa al formulario con un mensaje y utilizamos el parametro status para hacerlo
-        return back()->with('status','Venta con exito');
+        //return back()->with('status','Venta con exito');
     }
 
     /**

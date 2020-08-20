@@ -47,29 +47,6 @@
         </div>
     </section>
 
-<<<<<<< HEAD
-    <div class="modal fade" id="modal-danger">
-        <div class="modal-dialog">
-          <div class="modal-content bg-danger">
-            <div class="modal-header">
-              <h4 class="modal-title">Agregue un producto</h4>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <p>Debe seleccionar un producto para agregarlo a la venta</p>
-            </div>
-            <div class="modal-footer justify-content-between">
-              <button type="button" class="btn btn-outline-light" data-dismiss="modal">Cerrar</button>
-            </div>
-          </div>
-          <!-- /.modal-content -->
-        </div>
-        <!-- /.modal-dialog -->
-      </div>
-      <!-- /.modal -->
-=======
 
     <!-- 
         Aqui hay varias partes, se usa el metodo POST para recuperar la información consultada con el metodo de controllerVentas llamado fecth
@@ -83,7 +60,6 @@
         de que no se pueden agregar algo vacio, luego al utilizar el metodo agregar mandamos información, esa información la usamos para añadir los datos de los productos
         en una tabla para que puedan visualizarse
     -->
->>>>>>> 563fc916557ef4a243e2a202c19de154b0b02587
     
     <script>
         $(document).ready(function(){
@@ -192,13 +168,13 @@
             articulos = [];
             cantidades = [];
             $('#tbody tr').each(function () {
-                articulos.push({'producto' : $(this).find("td:eq(1)").text(), 'cantidad' : parseInt($(this).find(".cantidades").val()), 'precio' : parseFloat($(this).find("td:eq(2)").text()).toFixed(2) });
-                productos.push(articulos); console.log(productos);
+                productos.push({'producto' : $(this).find("td:eq(1)").text(), 'cantidad' : parseInt($(this).find(".cantidades").val()), 'precio' : parseFloat($(this).find("td:eq(2)").text()).toFixed(2) });
+
             });
                 
                
 
-            $('#arr_productos').val(productos);
+            $('#arr_productos').val(JSON.stringify(productos));
         });
 
         
